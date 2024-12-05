@@ -127,7 +127,7 @@ plot_summs <- function(..., ci_level = .95, model.names = NULL, coefs = NULL,
                        point.shape = TRUE, point.size = 5, 
                        line.size = c(0.8, 2), legend.title = "Model",
                        groups = NULL, facet.rows = NULL, facet.cols = NULL,
-                       facet.label.pos = "top", facet.labeller = NULL,
+                       facet.label.pos = "top", facet.labeller = "label_value",
                        color.class = colors, resp = NULL, dpar = NULL, 
                        coefs.match = c("exact", "regex")) {
   
@@ -180,7 +180,7 @@ plot_coefs <- function(..., ci_level = .95, inner_ci_level = NULL,
                        exp = FALSE, point.shape = TRUE, point.size = 5,
                        line.size = c(0.8, 2), legend.title = "Model", 
                        groups = NULL, facet.rows = NULL, facet.cols = NULL,
-                       facet.label.pos = "top", facet.labeller = NULL,
+                       facet.label.pos = "top", facet.labeller = "label_value",
                        color.class = colors, resp = NULL, dpar = NULL, 
                        coefs.match = c("exact", "regex")) {
   
