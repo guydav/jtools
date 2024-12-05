@@ -126,8 +126,8 @@ plot_summs <- function(..., ci_level = .95, model.names = NULL, coefs = NULL,
                        point.shape = TRUE, point.size = 5, 
                        line.size = c(0.8, 2), legend.title = "Model",
                        groups = NULL, facet.rows = NULL, facet.cols = NULL,
-                       facet.label.pos = "top", color.class = colors, 
-                       resp = NULL, dpar = NULL, 
+                       facet.label.pos = "top", facet.labeller = NULL,
+                       color.class = colors, resp = NULL, dpar = NULL, 
                        coefs.match = c("exact", "regex")) {
   
   # Capture arguments
@@ -157,7 +157,8 @@ plot_summs <- function(..., ci_level = .95, model.names = NULL, coefs = NULL,
                     point.shape = list(point.shape), point.size = point.size, 
                     line.size = list(line.size), legend.title = legend.title,
                     groups = list(groups), facet.rows = facet.rows,
-                    facet.cols = facet.cols, facet.label.pos = facet.label.pos, 
+                    facet.cols = facet.cols, facet.label.pos = facet.label.pos,
+                    facet.labeller = facet.labeller, 
                     color.class = color.class, resp = resp, dpar = dpar,
                     coefs.match = coefs.match, ex_args))
   
@@ -178,8 +179,8 @@ plot_coefs <- function(..., ci_level = .95, inner_ci_level = NULL,
                        exp = FALSE, point.shape = TRUE, point.size = 5,
                        line.size = c(0.8, 2), legend.title = "Model", 
                        groups = NULL, facet.rows = NULL, facet.cols = NULL,
-                       facet.label.pos = "top", color.class = colors,
-                       resp = NULL, dpar = NULL, 
+                       facet.label.pos = "top", facet.labeller = NULL,
+                       color.class = colors, resp = NULL, dpar = NULL, 
                        coefs.match = c("exact", "regex")) {
   
   if (!is.numeric(line.size[1])) stop_wrap("line.size must be a number (or two
@@ -309,7 +310,8 @@ plot_coefs <- function(..., ci_level = .95, inner_ci_level = NULL,
       facet.cols <- 1
     }
     p <- p + facet_wrap(group ~ ., nrow = facet.rows, ncol = facet.cols,
-                        scales = "free_y", strip.position = facet.label.pos)
+                        scales = "free_y", strip.position = facet.label.pos,
+                        labeller = facet.labeller)
   }
   
   # Checking if user provided the colors his/herself
