@@ -55,6 +55,7 @@
 #'   argument to [ggplot2::facet_wrap()]).
 #' @param facet.label.pos Where to put the facet labels. One of "top" (the
 #'   default), "bottom", "left", or "right".
+#' @param facet.labeller An optional facet labeller for custom labels
 #' @param resp For any models that are `brmsfit` and have multiple response
 #'   variables, specify them with a vector here. If the model list includes
 #'   other types of models, you do not need to enter `resp` for those models.
